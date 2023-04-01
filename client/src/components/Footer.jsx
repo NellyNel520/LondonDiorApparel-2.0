@@ -91,16 +91,16 @@ const Footer = () => {
 				</Desc>
 				<SocialContainer className='mt-10'>
 					<SocialIcon>
-						<LinkedInIcon sx={{ fontSize: "50px" }} className='text-blue-700'/>
+						<LinkedInIcon sx={{ fontSize: "50px"}} className="text-blue-400"/>
 					</SocialIcon>
 					<SocialIcon>
-						<GitHubIcon sx={{ fontSize: "50px" }} className='text-gray-400'/>
+						<GitHubIcon sx={{ fontSize: "50px"}} className='text-gray-400'/>
 					</SocialIcon>
-					<SocialIcon>
-						<InstagramIcon sx={{ fontSize: "50px" }} className='text-pink-700'color="E4405F" />
+					<SocialIcon color="E4405F">
+						<InstagramIcon sx={{ fontSize: "50px" }} />
 					</SocialIcon>
-					<SocialIcon>
-						<FacebookIcon sx={{ fontSize: "50px" }}color="3B5999" className='text-blue-500' />
+					<SocialIcon color="3B5999">
+						<FacebookIcon sx={{ fontSize: "50px" }} />
 					</SocialIcon>
 				</SocialContainer>
 			</Left>
