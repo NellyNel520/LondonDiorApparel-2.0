@@ -4,7 +4,7 @@ import SendIcon from '@mui/icons-material/Send';
 
 const Container = styled.div`
   height: 60vh;
-  background-color: #fcf5f5;
+  background-color: #0ca2e2;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,7 +19,7 @@ const Description = styled.div`
   font-size: 24px;
   font-weight: 300;
   margin-bottom: 20px;
-  
+
 `;
 
 const InputContainer = styled.div`
@@ -40,8 +40,8 @@ const Input = styled.input`
 const Button = styled.button`
   flex: 1;
   border: none;
-  background-color: teal;
-  color: white;
+  background-color: black;
+  color: #0ca2e2;
 `;
 
 
