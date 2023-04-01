@@ -108,8 +108,10 @@ const Amount = styled.span`
 
 const Button = styled.button`
 	padding: 15px;
-	border: 2px solid teal;
-	background-color: white;
+	border: 2px solid white;
+  border-radius: 8px;
+	background-color: #0ca2e2;
+
 	cursor: pointer;
 	font-weight: 500;
 	&:hover {
@@ -157,13 +159,13 @@ const ProductDetails = () => {
 							</FilterSize>
 						</Filter>
 					</FilterContainer>
-					<AddContainer>
+					<AddContainer className="text-white">
 						<AmountContainer>
               <Remove />
               <Amount>1</Amount>
               <Add />
             </AmountContainer>
-						<Button>ADD TO CART</Button>
+						<Button className="text-black">ADD TO CART</Button>
 					</AddContainer>
 				</InfoContainer>
 			</Wrapper>
