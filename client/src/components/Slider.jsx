@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useState } from "react";
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
+import { sliderItems } from '../data';
 
 const Container = styled.div`
 	width: 100%;
@@ -33,7 +35,7 @@ const Wrapper = styled.div`
 	height: 100%;
 	display: flex;
 	transition: all 1.5s ease;
-	transform: translateX(${(props) => props.slideIndex * -100}vw);
+	transform: translateX(${(props)=>props.slideIndex * -100}vw);
 `
 const Slide = styled.div`
 	width: 100vw;
@@ -45,7 +47,7 @@ const Slide = styled.div`
 
 const ImgContainer = styled.div`
 	height: 100%;
-	flex: 1;
+	flex: 0.7;
 `
 
 const Image = styled.img`
@@ -59,10 +61,11 @@ const InfoContainer = styled.div`
 
 const Title = styled.h1`
 	font-size: 70px;
+  
 `
 
 const Desc = styled.p`
-	margin: 50px 0px;
+	margin: 50px 15px 50px 0px;
 	font-size: 20px;
 	font-weight: 500;
 	letter-spacing: 3px;
@@ -76,32 +79,48 @@ const Button = styled.button`
 `
 
 const Slider = () => {
+  const [slideIndex, setSlideIndex] = useState(0);
+  const handleClick = (direction) => {
+    if (direction === "left") {
+      setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 2);
+    } else {
+      setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0);
+    }
+  };
+
 	return (
 		<Container>
-			<Arrow>
+			<Arrow direction="left" onClick={() => handleClick("left")}>
 				<ArrowBackIosIcon />
 			</Arrow>
 
-			<Wrapper>
-				<Slide>
+			<Wrapper slideIndex={slideIndex}>
+        {sliderItems.map(item => (
+
+				<Slide bg={item.bg}>
 					<ImgContainer>
-						<Image src="https://i.postimg.cc/13fxzcXc/hoodie-mockup-of-a-man-with-cool-locs-m10777-2.png" />
+						<Image src={item.img} />
 					</ImgContainer>
 					<InfoContainer>
-						<Title>SPRING FLING </Title>
-						<Desc>
-							Spring into style with our exclusive Spring sale! Shop now and get
-							amazing discounts on our latest collection of clothing.
+						<Title className='text-blue-500'>{item.title}</Title>
+						<Desc className='text-white'>
+							{item.desc}
 						</Desc>
 						<Button className="bg-blue-400 hover:bg-yellow-300 hover:text-blue-600">
 							SHOP NOW
 						</Button>
 					</InfoContainer>
 				</Slide>
+        
+        ))}
+
+      
+
+        
 			</Wrapper>
 
-			<Arrow>
-				<ArrowForwardIosIcon />
+			<Arrow direction="right"  onClick={() => handleClick("right")}>
+				<ArrowForwardIosIcon/>
 			</Arrow>
 
 		</Container>
