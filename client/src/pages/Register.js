@@ -19,7 +19,7 @@ const Container = styled.div`
 const Wrapper = styled.div`
   width: 40%;
   padding: 20px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 20px;
   ${'' /* ${mobile({ width: "75%" })} */}
 `;
