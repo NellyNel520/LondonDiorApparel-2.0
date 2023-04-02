@@ -1,7 +1,7 @@
 const { Category, Product } = require('../models')
 
 // Create  Categories
-const createProductCategory = async (req, res) => {
+const createCategory = async (req, res) => {
 	try {
 		const category = await new Category(req.body);
 		await category.save();
@@ -64,7 +64,7 @@ const deleteCategory = async (req, res) => {
 
 
 module.exports ={
-  createProductCategory,
+  createCategory,
   getAllCategories,
   getCategoryById,
   updateCategory,
