@@ -9,7 +9,7 @@ const User = mongoose.model('User', UserSchema)
 const Product = mongoose.model('Product', ProductSchema)
 const Cart = mongoose.model('Cart', CartSchema)
 const Order = mongoose.model('Order', OrderSchema)
-const Category = mongoose.model('Order', CategorySchema)
+const Category = mongoose.model('Category', CategorySchema)
 
 module.exports = {
   User,

@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const controllers = require("../controllers/CartController");
-n
+
 // create cart
 router.post('/addCart', controllers.createCart)
 

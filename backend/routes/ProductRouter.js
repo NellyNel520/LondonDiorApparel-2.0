@@ -1,6 +1,6 @@
-const router = require("express").Router();
-const controllers = require("../controllers/ProductController");
-n
+const router = require('express').Router()
+const controllers = require('../controllers/ProductController')
+
 // create product
 router.post('/addProduct', controllers.createProduct)
 
