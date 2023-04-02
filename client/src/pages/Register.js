@@ -57,7 +57,6 @@ const Button = styled.button`
 const Register = () => {
 	return (
 		<div>
-			<Navbar />
 			<Container className="font-play">
 				<Wrapper>
 					<Title className="text-center">Create Account</Title>
@@ -79,7 +78,6 @@ const Register = () => {
 					</Form>
 				</Wrapper>
 			</Container>
-      <Footer />
 		</div>
 	)
 }

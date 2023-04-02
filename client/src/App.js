@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { BASE_URL } from './global'
+import { CheckSession } from './services/Auth'
 import './styles/App.css'
 import Home from './pages/Home'
 import Cart from './pages/Cart'
@@ -13,7 +14,27 @@ import About from './pages/About'
 
 
 function App() {
-	// const [user, setUser] = useState(null)
+	const [user, setUser] = useState(null)
+
+	const handleLogOut = () => {
+		//Reset all auth related state and clear localStorage
+		setUser(null)
+		localStorage.clear()
+	}
+
+	const checkToken = async () => {
+		const user = await CheckSession()
+		setUser(user)
+	}
+
+	useEffect(() => {
+		const token = localStorage.getItem('token')
+
+		if (token) {
+			checkToken()
+		}
+	}, [])
+	
 	return (
 		<div>
 			

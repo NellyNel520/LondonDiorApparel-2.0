@@ -162,8 +162,6 @@ const Button = styled.button`
 const Cart = () => {
   return (
     <Container className='text-white font-play'>
-      <Navbar />
-      <Announcement />
       <Wrapper>
         <Title className='text-xl text-blue-400'>YOUR CART</Title>
         <Top>
@@ -254,7 +252,6 @@ const Cart = () => {
           </Summary>
         </Bottom>
       </Wrapper>
-      <Footer />
     </Container>
   )
 }

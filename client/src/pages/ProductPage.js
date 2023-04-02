@@ -43,8 +43,6 @@ const Option = styled.option``;
 const ProductPage = () => {
   return (
     <Container className='font-play'>
-      <Navbar />
-      <Announcement />
       <Title className='text-4xl text-blue-400 font-play'>T-shirts</Title>
       <FilterContainer>
         <Filter >
@@ -78,7 +76,6 @@ const ProductPage = () => {
       </FilterContainer>
       <Products />
       <Newsletter />
-      <Footer />
     </Container>
   )
 }

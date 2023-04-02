@@ -70,8 +70,7 @@ const Link = styled.a`
 
 const Login = () => {
   return (
-  <div>
-  <Navbar />
+ 
   <Container className='font-play'>
     <Wrapper>
       <Title className='text-center'>SIGN IN</Title>
@@ -84,8 +83,7 @@ const Login = () => {
       </Form>
     </Wrapper>
   </Container>
-  <Footer />
-  </div>
+ 
   )
 }
 

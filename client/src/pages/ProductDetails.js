@@ -123,8 +123,6 @@ const Button = styled.button`
 const ProductDetails = () => {
 	return (
 		<Container className='font-play'>
-			<Navbar />
-			<Announcement />
 			<Wrapper>
 				<ImgContainer>
 					<Image src="https://i.postimg.cc/23NYW1t8/mockup-of-a-bearded-man-wearing-a-bella-canvas-long-sleeve-tee-m13939.png" />
@@ -176,7 +174,6 @@ const ProductDetails = () => {
 				</InfoContainer>
 			</Wrapper>
 			<Newsletter />
-			<Footer />
 		</Container>
 	)
 }
