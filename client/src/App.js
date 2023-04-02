@@ -39,7 +39,7 @@ function App() {
 	return (
 		<div>
 			<Navbar user={user} handleLogOut={handleLogOut}/>
-			<Announcement />
+			<Announcement user={user}/>
 			<main>
 				<Routes>
 					<Route path="/" element={<Home />} />
