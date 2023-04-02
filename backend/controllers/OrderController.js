@@ -115,7 +115,8 @@ module.exports ={
   getAllOrders,
   getUserOrder,
   getOrderById,
-  deleteOrder
+  deleteOrder,
+  getMonthlyIncome
   
 
 }
