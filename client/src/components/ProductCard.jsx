@@ -28,23 +28,17 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(191, 191, 191, 0.6);
+  background-color: black;
   position: relative;
   &:hover ${Info}{
     opacity: 1;
   }
 `;
 
-const Circle = styled.div`
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background-color: white;
-  position: absolute;
-`;
 
 const Image = styled.img`
-  height: 75%;
+  height: 100%;
+  width: 100%;
   z-index: 2;
 `;
 
