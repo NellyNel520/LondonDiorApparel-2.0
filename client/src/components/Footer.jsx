@@ -7,7 +7,7 @@ import GitHubIcon from '@mui/icons-material/GitHub'
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import EmailIcon from '@mui/icons-material/Email'
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone'
-import { Phone } from '@mui/icons-material'
+import { mobile } from "../responsive";
 
 const Container = styled.div`
 	display: flex;
@@ -44,6 +44,7 @@ const SocialIcon = styled.div`
 const Center = styled.div`
 	flex: 1;
 	padding: 20px;
+	${mobile({ display: "none" })}
 `
 
 const Title = styled.h3`
@@ -67,6 +68,7 @@ const ListItem = styled.li`
 const Right = styled.div`
 	flex: flex-end;
 	padding: 20px;
+	${mobile({ backgroundColor: "#fff8f8" })}
 `
 
 const ContactItem = styled.div`
@@ -127,7 +129,7 @@ const Footer = () => {
           <LocationOnIcon /> 1101 Broad Street, Richmond VA 23223
         </ContactItem>
         <ContactItem>
-          <Phone /> +1 888 234 7345
+          <LocalPhoneIcon /> +1 888 234 7345
         </ContactItem>
         <ContactItem>
           <EmailIcon /> contact@LondonDiorApparel.com

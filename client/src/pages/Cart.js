@@ -227,7 +227,28 @@ const Cart = () => {
               </PriceDetail>
             </Product>
           </Info>
-          <Summary>Summary</Summary>
+          <Summary>
+            <Title>ORDER SUMMARY</Title>
+            <SummaryItem>
+              <SummaryItemText>Subtotal:</SummaryItemText>
+              <SummaryItemPrice>$75.00</SummaryItemPrice>
+            </SummaryItem>
+            <SummaryItem>
+              <SummaryItemText>Estimated Shipping:</SummaryItemText>
+              <SummaryItemPrice>$4.29</SummaryItemPrice>
+            </SummaryItem>
+            <SummaryItem>
+              <SummaryItemText>Shipping Discount:</SummaryItemText>
+              <SummaryItemPrice>-$4.29</SummaryItemPrice>
+            </SummaryItem>
+            <SummaryItem>
+              <SummaryItemText type="total" className='text-[#0ca2e2] text-xl'>Total:</SummaryItemText>
+              <SummaryItemPrice>$75.00</SummaryItemPrice>
+            </SummaryItem>
+
+            <Button className='hover:bg-[#0ca2e2] border rounded'>CHECKOUT</Button>
+            
+          </Summary>
         </Bottom>
       </Wrapper>
       <Footer />
