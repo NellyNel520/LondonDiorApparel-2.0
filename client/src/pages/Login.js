@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar';
 import { mobile } from "../responsive";
 
 
+
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
