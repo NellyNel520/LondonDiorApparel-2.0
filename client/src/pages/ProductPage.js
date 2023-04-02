@@ -40,7 +40,7 @@ const Select = styled.select`
 `;
 const Option = styled.option``;
 
-const ProductCategory = () => {
+const ProductPage = () => {
   return (
     <Container className='font-play'>
       <Navbar />
@@ -83,4 +83,4 @@ const ProductCategory = () => {
   )
 }
 
-export default ProductCategory
+export default ProductPage

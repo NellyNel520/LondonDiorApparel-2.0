@@ -4,6 +4,7 @@ import Badge from '@mui/material/Badge'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import styled from "styled-components";
 import { mobile } from "../responsive";
+import { Link } from 'react-router-dom'
 
 const Container = styled.div`
   height: 60px;
@@ -82,16 +83,17 @@ const Navbar = () => {
           <Logo className='font-ari text-[2rem]'>London Dior Apparel</Logo>
         </Center>
         <Right>
-					<MenuItem className='hover:text-white'>HOME</MenuItem>
-					<MenuItem className='hover:text-white'>PRODUCTS</MenuItem>
-          <MenuItem className='hover:text-white'>REGISTER</MenuItem>
-          <MenuItem className='hover:text-white'>SIGN IN</MenuItem>
-					<MenuItem className='hover:text-white'>ABOUT</MenuItem>
-          <MenuItem className='hover:text-white'>
+					<Link to={"/"}><MenuItem className='hover:text-white'>HOME</MenuItem></Link>
+					<Link to={"/products"}><MenuItem className='hover:text-white'>PRODUCTS</MenuItem></Link>
+          <Link to={"/signup"}><MenuItem className='hover:text-white'>REGISTER</MenuItem></Link>
+          <Link to={"/login"}><MenuItem className='hover:text-white'>SIGN IN</MenuItem></Link>
+					<Link to={"/about"}><MenuItem className='hover:text-white'>ABOUT</MenuItem></Link>
+          <Link to={"/cart"}><MenuItem className='hover:text-white'>
             <Badge badgeContent={3} color="primary">
               <ShoppingCartIcon />
             </Badge>
           </MenuItem>
+          </Link>
         </Right>
       </Wrapper>
     </Container>
