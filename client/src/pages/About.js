@@ -1,8 +1,16 @@
 import React from 'react'
+import Footer from '../components/Footer'
+import Navbar from '../components/Navbar'
 
 const About = () => {
   return (
-    <div>About</div>
+    <div>
+    <Navbar />
+    <div className='text-white text-3xl'>
+      About
+    </div>
+    <Footer />
+    </div>
   )
 }
 
