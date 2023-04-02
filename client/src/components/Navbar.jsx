@@ -82,12 +82,12 @@ const Navbar = () => {
           <Logo className='font-ari text-[2rem]'>London Dior Apparel</Logo>
         </Center>
         <Right>
-					<MenuItem>HOME</MenuItem>
-					<MenuItem>PRODUCTS</MenuItem>
-          <MenuItem>REGISTER</MenuItem>
-          <MenuItem>SIGN IN</MenuItem>
-					<MenuItem>ABOUT</MenuItem>
-          <MenuItem>
+					<MenuItem className='hover:text-white'>HOME</MenuItem>
+					<MenuItem className='hover:text-white'>PRODUCTS</MenuItem>
+          <MenuItem className='hover:text-white'>REGISTER</MenuItem>
+          <MenuItem className='hover:text-white'>SIGN IN</MenuItem>
+					<MenuItem className='hover:text-white'>ABOUT</MenuItem>
+          <MenuItem className='hover:text-white'>
             <Badge badgeContent={3} color="primary">
               <ShoppingCartIcon />
             </Badge>

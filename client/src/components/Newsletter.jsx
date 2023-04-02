@@ -51,11 +51,11 @@ const Button = styled.button`
 const Newsletter = () => {
   return (
     <Container>
-      <Title>Newsletter</Title>
-      <Description>Sign up for our newsletter today and be the first to know about our latest arrivals, exclusive discounts, and special promotions. </Description>
+      <Title className='font-play'>NewsLetter</Title>
+      <Description className='font-play'>Sign up for our newsletter today and be the first to know about our latest arrivals, exclusive discounts, and special promotions. </Description>
       <InputContainer>
         <Input placeholder='Enter Your Email' />
-        <Button>
+        <Button className='hover:bg-yellow-400'>
           <SendIcon />
         </Button>
       </InputContainer>

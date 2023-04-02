@@ -75,6 +75,7 @@ const ContactItem = styled.div`
 	margin-bottom: 20px;
 	display: flex;
 	align-items: center;
+	font-size: 18px;
 `
 
 const Payment = styled.img`
@@ -85,11 +86,9 @@ const Footer = () => {
 	return (
 		<Container className="text-blue-400">
 			<Left>
-				<Logo>London Dior Apparel</Logo>
-				<Desc>
-					London Dior Apparel, your one-stop-shop for all things fashion! We are
-					excited to offer you the latest and most stylish clothing options in
-					the market.
+				<Logo className='font-ari text-4xl text-white'>London Dior Apparel</Logo>
+				<Desc className='font-play'>
+					Your one-stop-shop for all things fashion! Shop now and get up to 50% off on our latest collection.
 				</Desc>
 				<SocialContainer className='mt-10'>
 					<SocialIcon>
@@ -107,8 +106,8 @@ const Footer = () => {
 				</SocialContainer>
 			</Left>
 
-			<Center>
-				<Title>Resources</Title>
+			<Center className='font-play'>
+				<Title className='text-xl text-white'>Resources</Title>
 				<List>
 					<ListItem>Home</ListItem>
 					<ListItem>Cart</ListItem>
@@ -123,16 +122,16 @@ const Footer = () => {
 			</Center>
 
 
-			<Right>
-        <Title>Contact</Title>
+			<Right className='font-play'>
+        <Title className='text-xl text-white'>Contact</Title>
         <ContactItem>
-          <LocationOnIcon /> 1101 Broad Street, Richmond VA 23223
+          <LocationOnIcon className='mr-2'/> 1101 Broad Street, Richmond VA 23223
         </ContactItem>
         <ContactItem>
-          <LocalPhoneIcon /> +1 888 234 7345
+          <LocalPhoneIcon className='mr-2'/> +1 888 234 7345
         </ContactItem>
         <ContactItem>
-          <EmailIcon /> contact@LondonDiorApparel.com
+          <EmailIcon className='mr-2'/> contact@LondonDiorApparel.com
         </ContactItem>
         <Payment src="https://i.ibb.co/Qfvn4z6/payment.png"/>
       </Right>

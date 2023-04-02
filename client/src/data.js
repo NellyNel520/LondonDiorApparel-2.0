@@ -9,7 +9,7 @@ export const sliderItems = [
   {
     id: 2,
     img: "https://i.postimg.cc/Qd58V26F/cool-mockup-of-a-trendy-woman-wearing-a-tee-while-out-at-night-18856.png",
-    title: "AUTUMN COLLECTION",
+    title: "HIPHOP HISTORY COLLECTION",
     desc: "Spring into style with our exclusive Spring sale! Shop now and get amazing discounts on our latest collection of clothing.",
     bg: "black",
   },
@@ -25,19 +25,19 @@ export const sliderItems = [
 export const categories = [
   {
     id: 1,
-    img: "https://images.pexels.com/photos/5886041/pexels-photo-5886041.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    img: "https://i.postimg.cc/Qd58V26F/cool-mockup-of-a-trendy-woman-wearing-a-tee-while-out-at-night-18856.png",
     title: "T-SHIRTS!",
     cat:"women"
   },
   {
     id: 2,
-    img: "https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    img: "https://images.unsplash.com/photo-1563074409-c1bd47bc2fc3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
     title: "HOODIES",
     cat:"coat"
   },
   {
     id: 3,
-    img: "https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    img: "https://images.unsplash.com/photo-1680028136470-5a957bc07a5f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGJlYW5pZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
     title: "BEANIES",
     cat:"jeans"
   },
