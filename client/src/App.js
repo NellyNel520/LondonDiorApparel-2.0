@@ -11,6 +11,9 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import ProductDetails from './pages/ProductDetails'
 import About from './pages/About'
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+import Announcement from './components/Announcement'
 
 
 function App() {
@@ -34,10 +37,11 @@ function App() {
 			checkToken()
 		}
 	}, [])
-	
+
 	return (
 		<div>
-			
+			<Navbar />
+			<Announcement />
 			<main>
 				<Routes>
 					<Route path="/" element={<Home />} />
@@ -49,6 +53,7 @@ function App() {
 					<Route path="/products/:id" element={<ProductDetails />} />
 				</Routes>
 			</main>
+			<Footer />
       
 		</div>
 	)
