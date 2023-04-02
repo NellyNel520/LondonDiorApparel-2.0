@@ -48,10 +48,10 @@ const Price = styled.span`
 `
 
 const FilterContainer = styled.div`
-	width: 50%;
+	width: 75%;
 	margin: 30px 0px;
 	display: flex;
-	border: 3px white;
+	border: 8px white;
 	justify-content: space-between;
 	${mobile({ width: "100%" })}
 `
@@ -122,7 +122,7 @@ const Button = styled.button`
 
 const ProductDetails = () => {
 	return (
-		<Container>
+		<Container className='font-play'>
 			<Navbar />
 			<Announcement />
 			<Wrapper>
@@ -130,7 +130,7 @@ const ProductDetails = () => {
 					<Image src="https://i.postimg.cc/23NYW1t8/mockup-of-a-bearded-man-wearing-a-bella-canvas-long-sleeve-tee-m13939.png" />
 				</ImgContainer>
 				<InfoContainer>
-					<Title className="text-3xl text-blue-400">
+					<Title className="text-4xl text-blue-400">
 						Black By Popular Demand
 					</Title>
 					<Desc className="text-white text-xl">
@@ -139,7 +139,7 @@ const ProductDetails = () => {
 						makes it perfect for any casual occasion. Available in a range of
 						colors and sizes to suit your style.
 					</Desc>
-					<Price className="text-white">$20</Price>
+					<Price className="text-white">$20.99</Price>
 
 					<FilterContainer>
 						<Filter>
@@ -159,14 +159,19 @@ const ProductDetails = () => {
 								<FilterSizeOption>2X</FilterSizeOption>
 							</FilterSize>
 						</Filter>
+						<Filter>
+							<FilterTitle className="text-white pr-2">Status: </FilterTitle>
+							<span className=' text-white border-0 py-2 px-3 bg-green-500 rounded'>In Stock</span>
+						</Filter>
+						
 					</FilterContainer>
 					<AddContainer className="text-white">
-						<AmountContainer>
+						<AmountContainer className='text-xl'>
               <Remove />
               <Amount>1</Amount>
               <Add />
             </AmountContainer>
-						<Button className="text-black">ADD TO CART</Button>
+						<Button className="text-black hover:text-blue-500">ADD TO CART</Button>
 					</AddContainer>
 				</InfoContainer>
 			</Wrapper>

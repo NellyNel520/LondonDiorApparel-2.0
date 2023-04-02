@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.rating{
+  color: rgb(237, 181, 39)
+  }
+  .numReviews{
+    color: white;
+  }
