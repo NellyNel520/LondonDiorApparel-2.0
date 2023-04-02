@@ -58,9 +58,9 @@ const Button = styled.button`
 
 const Register = () => {
   return (
-    <Container>
+    <Container className='font-play'>
       <Wrapper>
-        <Title className='text-center'>Create an account</Title>
+        <Title className='text-center'>Create Account</Title>
         <Form>
           <Input placeholder='First Name'/>
           <Input placeholder='Last Name'/>
@@ -72,7 +72,7 @@ const Register = () => {
           <span className='font-bold'>Terms & Conditions: </span>
           By registering for an online account, you agree to our terms and conditions, privacy policy, and any other relevant policies. 
           </Agreement>
-          <Button className='rounded'>CREATE</Button>
+          <Button className='rounded hover:bg-white hover:text-blue-400'>CREATE</Button>
         </Form>
       </Wrapper>
     </Container>
