@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const controllers = require("../controllers/ProductController");
-
+n
 // create product
 router.post('/addProduct', controllers.createProduct)
 
