@@ -12,7 +12,7 @@ ${'' /* background-color: white; */}
 `;
 
 const Wrapper = styled.div`
-  padding: 20px;
+  padding: 1rem 1rem 4rem 1rem;
   ${'' /* ${mobile({ padding: "10px" })} */}
   ${mobile({ padding: "10px" })}
 `;
@@ -34,9 +34,10 @@ const TopButton = styled.button`
   font-weight: 600;
   cursor: pointer;
   border: ${(props) => props.type === "filled" && "none"};
-  background-color: ${(props) =>
+  ${'' /* background-color: ${(props) =>
     props.type === "filled" ? "white" : "transparent"};
-  color: ${(props) => props.type === "filled" && "white"};
+  color: ${(props) => props.type === "filled" && "white"}; */}
+  ${'' /* background-color: blue; */}
 `;
 
 const TopTexts = styled.div`
@@ -127,7 +128,7 @@ const Hr = styled.hr`
 
 const Summary = styled.div`
   flex: 1;
-  border: 0.5px solid lightgray;
+  border: 0.5px solid lightblue;
   border-radius: 10px;
   padding: 20px;
   height: 50vh;
@@ -160,19 +161,19 @@ const Button = styled.button`
 
 const Cart = () => {
   return (
-    <Container className='text-white'>
+    <Container className='text-white font-play'>
       <Navbar />
       <Announcement />
       <Wrapper>
-        <Title>YOUR CART</Title>
+        <Title className='text-xl text-blue-400'>YOUR CART</Title>
         <Top>
 
-          <TopButton>CONTINUE SHOPPING</TopButton>
+          <TopButton className='bg-white text-blue-400 hover:bg-blue-400 hover:text-white rounded'>CONTINUE SHOPPING</TopButton>
           <TopTexts>
             <TopText>Shopping Bag(2)</TopText>
             <TopText>Your Wishlist(12)</TopText>
           </TopTexts>
-          <TopButton type='field'>CHECKOUT NOW</TopButton>
+          <TopButton type='field' className='bg-blue-400 rounded text-black hover:text-white'>CHECKOUT NOW</TopButton>
         </Top>
         <Bottom>
 
@@ -187,7 +188,7 @@ const Cart = () => {
                     <ProductId>
                       <b  className='text-blue-400'>ID:</b> 97950707-38424
                     </ProductId>
-                    <ProductColor color="red" />
+                    <ProductColor color="pink" />
                     <ProductSize>
                       <b  className='text-blue-400'>Size:</b> L
                     </ProductSize>
@@ -213,7 +214,7 @@ const Cart = () => {
                     <ProductId>
                       <b  className='text-blue-400'>ID:</b> 97950707-38424
                     </ProductId>
-                    <ProductColor color="red" />
+                    <ProductColor color="green" />
                     <ProductSize>
                       <b  className='text-blue-400'>Size:</b> M
                     </ProductSize>
@@ -230,8 +231,8 @@ const Cart = () => {
             </Product>
           </Info>
           <Summary>
-            <Title>ORDER SUMMARY</Title>
-            <SummaryItem>
+            <Title className='text-2xl text-blue-400'>ORDER SUMMARY</Title>
+            <SummaryItem className='text-xl'>
               <SummaryItemText>Subtotal:</SummaryItemText>
               <SummaryItemPrice>$75.00</SummaryItemPrice>
             </SummaryItem>
@@ -244,7 +245,7 @@ const Cart = () => {
               <SummaryItemPrice>-$4.29</SummaryItemPrice>
             </SummaryItem>
             <SummaryItem>
-              <SummaryItemText type="total" className='text-[#0ca2e2] text-xl'>Total:</SummaryItemText>
+              <SummaryItemText type="total" className='text-blue-400 text-xl'>Total:</SummaryItemText>
               <SummaryItemPrice>$75.00</SummaryItemPrice>
             </SummaryItem>
 

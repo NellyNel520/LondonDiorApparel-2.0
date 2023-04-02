@@ -67,11 +67,11 @@ const Link = styled.a`
 
 const Login = () => {
   return (
-  <Container>
+  <Container className='font-play'>
     <Wrapper>
       <Title className='text-center'>SIGN IN</Title>
       <Form>
-        <Input placeholder='email'/>
+        <Input placeholder='Email'/>
         <Input placeholder='Password'/>
         <Button className='rounded'>LOGIN</Button>
         <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>

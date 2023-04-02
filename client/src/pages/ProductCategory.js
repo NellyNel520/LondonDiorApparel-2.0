@@ -40,12 +40,12 @@ const Select = styled.select`
 `;
 const Option = styled.option``;
 
-const ProductList = () => {
+const ProductCategory = () => {
   return (
-    <Container>
+    <Container className='font-play'>
       <Navbar />
       <Announcement />
-      <Title className='text-3xl text-blue-300'>T-shirts</Title>
+      <Title className='text-4xl text-blue-400 font-play'>T-shirts</Title>
       <FilterContainer>
         <Filter >
           <FilterText>Filter Products:</FilterText>
@@ -83,4 +83,4 @@ const ProductList = () => {
   )
 }
 
-export default ProductList
+export default ProductCategory
