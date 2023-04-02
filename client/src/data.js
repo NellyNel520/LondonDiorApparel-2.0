@@ -1,24 +1,24 @@
 export const sliderItems = [
   {
     id: 1,
-    img: "https://i.postimg.cc/13fxzcXc/hoodie-mockup-of-a-man-with-cool-locs-m10777-2.png",
+    img: "https://i.postimg.cc/QM4pCKYN/Nas-Mock-Up.png",
     title: "SUMMER SALE",
     desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-    bg: "black",
+    bg: "181919",
   },
   {
     id: 2,
-    img: "https://i.ibb.co/DG69bQ4/2.png",
+    img: "https://i.postimg.cc/Qd58V26F/cool-mockup-of-a-trendy-woman-wearing-a-tee-while-out-at-night-18856.png",
     title: "AUTUMN COLLECTION",
     desc: "Spring into style with our exclusive Spring sale! Shop now and get amazing discounts on our latest collection of clothing.",
-    bg: "fcf1ed",
+    bg: "black",
   },
   {
     id: 3,
-    img: "https://i.ibb.co/cXFnLLV/3.png",
+    img: "https://i.postimg.cc/50WnbCXH/t-shirt-mockup-of-an-cool-woman-blowing-bubble-gum-21897a-2.png",
     title: "LOUNGEWEAR LOVE",
     desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-    bg: "fbf0f4",
+    bg: "f00d0d",
   },
 ];
 

@@ -28,7 +28,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f5fbfd;
+  background-color: rgba(191, 191, 191, 0.6);
   position: relative;
   &:hover ${Info}{
     opacity: 1;
@@ -68,7 +68,7 @@ const Icon = styled.div`
 const ProductCard = ({item}) => {
   return (
     <Container>
-      <Circle />
+      {/* <Circle /> */}
       <Image src={item.img} />
       <Info>
         <Icon>

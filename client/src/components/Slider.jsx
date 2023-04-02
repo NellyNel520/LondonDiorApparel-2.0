@@ -104,11 +104,11 @@ const Slider = () => {
 						<Image src={item.img} />
 					</ImgContainer>
 					<InfoContainer>
-						<Title className='text-blue-500'>{item.title}</Title>
-						<Desc className='text-white'>
+						<Title className='text-blue-500 font-header'>{item.title}</Title>
+						<Desc className='text-white font-play'>
 							{item.desc}
 						</Desc>
-						<Button className="bg-blue-400 hover:bg-yellow-300 hover:text-blue-600">
+						<Button className="bg-blue-400 rounded hover:bg-yellow-300 hover:text-blue-600">
 							SHOP NOW
 						</Button>
 					</InfoContainer>

@@ -11,7 +11,7 @@ import './styles/App.css'
 function App() {
   return (
     <div>
-     <Cart />
+     <Home />
     </div>
   );
 }

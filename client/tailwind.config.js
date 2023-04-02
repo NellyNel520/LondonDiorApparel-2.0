@@ -4,7 +4,13 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'play': ['Playfair Display', 'serif'],
+        'ari': ['Arizonia', 'cursive'],
+        'header': ['Alkatra', 'cursive']
+      }
+    },
   },
   plugins: [],
 }

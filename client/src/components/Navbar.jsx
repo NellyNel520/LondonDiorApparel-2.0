@@ -79,7 +79,7 @@ const Navbar = () => {
           </SearchContainer>
         </Left>
         <Center>
-          <Logo>LONDON DIOR APPAREL</Logo>
+          <Logo className='font-ari text-[2rem]'>London Dior Apparel</Logo>
         </Center>
         <Right>
 					<MenuItem>HOME</MenuItem>
