@@ -19,6 +19,7 @@ const Products = ({category, filters, sort}) => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
 
+  // Axios call to sort products by category
   useEffect(() => {
     const getProducts = async () => {
       try {
@@ -34,15 +35,46 @@ const Products = ({category, filters, sort}) => {
     getProducts();
   }, [category]);
 
+ // Axios call to sort by category and filter by size and color products 
+ useEffect(() => {
+  category &&
+    setFilteredProducts(
+      products.filter((item) =>
+        Object.entries(filters).every(([key, value]) =>
+          item[key].includes(value)
+        )
+      )
+    );
+}, [products, category, filters]);
+
+// axios call to sort by price and date added 
+useEffect(() => {
+  if (sort === "newest") {
+    setFilteredProducts((prev) =>
+      [...prev].sort((a, b) => a.createdAt - b.createdAt)
+    );
+  } else if (sort === "asc") {
+    setFilteredProducts((prev) =>
+      [...prev].sort((a, b) => a.price - b.price)
+    );
+  } else {
+    setFilteredProducts((prev) =>
+      [...prev].sort((a, b) => b.price - a.price)
+    );
+  }
+}, [sort]);
+
 
 
 
   return (
     <Container>
-      {popularProducts.map(item=> (
-        <ProductCard item={item} key={item.id} />
-      ))}
-    </Container>
+    {category
+      ? filteredProducts.map((item) => <ProductCard item={item} key={item.id} />)
+      : products
+          .slice(0, 8)
+          .map((item) => <ProductCard item={item} key={item.id} />)}
+  </Container>
   )
 }
 
