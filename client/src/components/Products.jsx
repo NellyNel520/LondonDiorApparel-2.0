@@ -4,6 +4,7 @@ import { popularProducts } from "../data";
 import ProductCard from './ProductCard';
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { BASE_URL } from '../global'
 
 
 
@@ -15,6 +16,23 @@ const Container = styled.div`
 `;
 const Products = ({category, filters, sort}) => {
   // console.log(category, filters, sort) IT WORKS
+  const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const res = await axios.get(
+          category
+            ? `${BASE_URL}/products/?category=${category}`
+            : "http://localhost:5000/api/products"
+        );
+        setProducts(res.data);
+      } catch (err) {}
+    };
+    getProducts();
+  }, [category]);
+
 
   return (
     <Container>

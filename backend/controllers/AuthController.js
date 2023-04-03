@@ -28,6 +28,7 @@ const Login = async (req, res) => {
 			email: email,
 		})
 		console.log(user)
+		// console.log("right here")
 		// Checks if the password matches the stored digest
 		let matched = await middleware.comparePassword(
 			user.passwordDigest,

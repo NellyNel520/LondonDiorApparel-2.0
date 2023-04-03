@@ -23,7 +23,7 @@ const createProduct = async (req, res) => {
 };
 
 
-// Get All Products
+// Get All Products BASIC
 
 const getAllProducts = async (req, res) => {
 	try {
@@ -33,6 +33,33 @@ const getAllProducts = async (req, res) => {
 		return res.status(500).send(error.message);
 	}
 };
+
+// Get all products to filter 
+
+const filterAllProducts = async (req, res) => {
+	const qNew = req.query.new;
+  const qCategory = req.query.category;
+	try {
+    let products;
+
+    if (qNew) {
+      products = await Product.find().sort({ createdAt: -1 }).limit(1);
+    } else if (qCategory) {
+      products = await Product.find({
+        categories: {
+          $in: [qCategory],
+        },
+      });
+    } else {
+      products = await Product.find();
+    }
+
+    res.status(200).json(products);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
+
 
 
 // Get Product by Id
@@ -84,7 +111,8 @@ module.exports ={
   getAllProducts,
   getProductById,
   updateProduct,
-  deleteProduct
+  deleteProduct,
+	filterAllProducts
 
 
 }

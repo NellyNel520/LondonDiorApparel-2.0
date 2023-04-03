@@ -14,7 +14,7 @@ Router.get('/', (req, res) => res.send('This is root babyyyyyyy!'))
 
 Router.use("/auth", AuthRouter)
 Router.use("/checkout", StripeRouter)
-Router.use("/product", ProductRouter)
+Router.use("/products", ProductRouter)
 Router.use("/category", CategoryRouter)
 Router.use("/order", OrderRouter)
 Router.use("/cart", CartRouter)

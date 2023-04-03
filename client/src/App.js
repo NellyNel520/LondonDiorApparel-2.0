@@ -40,6 +40,7 @@ function App() {
 		}
 	}, [])
 
+	// made call high up just incase needed in multiple components
 	const getAllProducts = async () => {
 		const response = await axios.get(`${BASE_URL}product/products`)
 		setProducts(response.data.products)
@@ -55,7 +56,8 @@ function App() {
 					<Route path="/" element={<Home />} />
 					<Route path="/cart" element={<Cart />} />
 					<Route path="/about" element={<About />} />
-					<Route path="/products/:category" element={<ProductPage getAllProducts={getAllProducts} products={products} setProducts={setProducts} />} />
+					<Route path="/products/:category" element={<ProductPage />} />
+					<Route path="/products" element={<ProductPage />} />
 					<Route path="/product/:id" element={<ProductDetails />} />
 					{/* <Route path="/login" element={<Login setUser={setUser}/>} /> */}
 					<Route path="/login" element={<Login2 setUser={setUser} />} />
