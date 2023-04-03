@@ -22,3 +22,24 @@ body{
 		align-items: center;
 		justify-content: center;
 }
+.signin-wrapper{
+	width: 30%;
+  padding: 3rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+}
+
+.signin-cont{
+	width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+      rgba(0, 150, 255, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("https://i.postimg.cc/Hkh6PLXN/LDA-Logo-Blue2nooffset.png")
+      center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

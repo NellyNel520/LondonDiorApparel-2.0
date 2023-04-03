@@ -6,7 +6,8 @@ import Home from './pages/Home'
 import Cart from './pages/Cart'
 import ProductPage from './pages/ProductPage'
 import Login from './pages/Login'
-import Register from './pages/Register'
+import Login2 from './pages/Login2'
+// import Register from './pages/Register'
 import Register2 from './pages/Register2'
 import ProductDetails from './pages/ProductDetails'
 import About from './pages/About'
@@ -49,7 +50,8 @@ function App() {
 					<Route path="/products" element={<ProductPage />} />
 					<Route path="/products/:id" element={<ProductDetails />} />
 					<Route path="/login" element={<Login setUser={setUser}/>} />
-					<Route path="/signup" element={<Register />} />
+					<Route path="/login2" element={<Login2 setUser={setUser}/>} />
+					{/* <Route path="/signup" element={<Register />} /> */}
 					<Route path="/register" element={<Register2 />} />
 				</Routes>
 			</main>
