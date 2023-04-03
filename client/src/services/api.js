@@ -1,7 +1,10 @@
 import Axios from 'axios'
 
+
+// public request
 export const BASE_URL = 'http://localhost:3001'
 
+// user request (checks token for auth)
 const Client = Axios.create({ baseURL: BASE_URL })
 
 // Intercepts every request axios makes

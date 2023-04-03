@@ -1,11 +1,12 @@
 import { Add, Remove } from '@mui/icons-material'
 import React from 'react'
 import styled from 'styled-components'
-import Announcement from '../components/Announcement'
-import Footer from '../components/Footer'
-import Navbar from '../components/Navbar'
 import Newsletter from '../components/Newsletter'
 import { mobile } from "../responsive";
+import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { BASE_URL } from '../global'
 
 const Container = styled.div``
 
@@ -121,6 +122,28 @@ const Button = styled.button`
 `
 
 const ProductDetails = () => {
+	const location = useLocation();
+  const id = location.pathname.split("/")[2];
+  const [product, setProduct] = useState({});
+  const [quantity, setQuantity] = useState(1);
+  const [color, setColor] = useState("");
+  const [size, setSize] = useState("");
+
+
+  // Axios call to sort products by id
+  useEffect(() => {
+    const getProduct = async () => {
+      try {
+        const res = await axios.get( `${BASE_URL}/products/info/${id}`);
+        console.log(res)
+        setProduct(res.data);
+      } catch (err) {}
+    };
+    getProduct();
+  }, [id]);
+
+	
+
 	return (
 		<Container className='font-play'>
 			<Wrapper>
