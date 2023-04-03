@@ -1,14 +1,15 @@
 // all user crud requires protected routes
 const { User } = require('../models')
+const bcrypt = require('bcrypt')
 
 
 
 // UPDATE
 const updateUser = async (req, res) => {
   if (req.body.password) {
-    req.body.password = CryptoJS.AES.encrypt(
+    req.body.password = bcrypt.hash(
       req.body.password,
-      process.env.PASS_SEC
+      process.env.APP_SECRET
     ).toString();
   }
 
