@@ -5,6 +5,7 @@ const CategoryRouter = require("./CategoryRouter")
 const OrderRouter = require("./OrderRouter")
 const CartRouter = require("./CartRouter")
 const UserRouter = require("./UserRouter")
+const StripeRouter = require("./StripeRouter")
 
 
 
@@ -12,6 +13,7 @@ const UserRouter = require("./UserRouter")
 Router.get('/', (req, res) => res.send('This is root babyyyyyyy!'))
 
 Router.use("/auth", AuthRouter)
+Router.use("/checkout", StripeRouter)
 Router.use("/product", ProductRouter)
 Router.use("/category", CategoryRouter)
 Router.use("/order", OrderRouter)
