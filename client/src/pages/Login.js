@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from "styled-components";
-import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
 import { mobile } from "../responsive";
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { SignInUser } from '../services/Auth'
+import { Link } from 'react-router-dom'
 
 
 
@@ -56,7 +58,7 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-const Link = styled.a`
+const Links = styled.a`
   margin: 5px 0px;
   font-size: 12px;
   text-decoration: underline;
@@ -68,18 +70,36 @@ const Link = styled.a`
 //   color: red;
 // `;
 
-const Login = () => {
+const Login = ({ setUser }) => {
+  let navigate = useNavigate()
+
+  const initialState = { email: '', password: '' }
+  
+  const [formValues, setFormValues] = useState(initialState)
+
+  const handleChange = (e) => {
+    setFormValues({ ...formValues, [e.target.name]: e.target.value })
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    const payload = await SignInUser(formValues)
+    setFormValues(initialState)
+    setUser(payload)
+    navigate('/')
+  }
+
   return (
  
   <Container className='font-play'>
     <Wrapper>
       <Title className='text-center'>SIGN IN</Title>
-      <Form>
-        <Input placeholder='Email'/>
-        <Input placeholder='Password'/>
-        <Button className='rounded'>LOGIN</Button>
-        <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
-        <Link>CREATE A NEW ACCOUNT</Link>
+      <Form onSubmit={handleSubmit}>
+        <Input placeholder='Email'  onChange={handleChange}/>
+        <Input placeholder='Password'  onChange={handleChange}/>
+        <Button type='submit' disabled={!formValues.email || !formValues.password} className='rounded'>LOGIN</Button>
+        <Links>DO NOT YOU REMEMBER THE PASSWORD?</Links>
+        <Links><Link to={"/signup"}>CREATE A NEW ACCOUNT</Link></Links>
       </Form>
     </Wrapper>
   </Container>
