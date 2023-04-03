@@ -19,7 +19,7 @@ router.get('/', controllers.filterAllProducts)
 // Get All products && FILTER / SORT (Read)
 router.get('/all', controllers.getAllProducts)
 // Get by product ID
-router.get('/product/:id', controllers.getProductById)
+router.get('/:id', controllers.getProductById)
 // UPDATE || protected admin only
 router.put('/updateProduct/:id', controllers.updateProduct)
 // DELETE || protected admin onl

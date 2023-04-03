@@ -54,10 +54,11 @@ const ProductPage = () => {
       [e.target.name]: value,
     });
   };
+  
 
   return (
     <Container className='font-play'>
-      <Title className='text-4xl text-blue-400 font-play'>{category}</Title>
+      <Title className='text-4xl text-blue-400 font-play'>{category }</Title>
       <FilterContainer>
         <Filter >
           <FilterText>Filter Products:</FilterText>

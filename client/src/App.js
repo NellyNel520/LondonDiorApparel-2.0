@@ -20,7 +20,6 @@ function App() {
 	const [user, setUser] = useState(null)
 	const [products, setProducts] = useState([])
 
-
 	const handleLogOut = () => {
 		//Reset all auth related state and clear localStorage
 		setUser(null)
