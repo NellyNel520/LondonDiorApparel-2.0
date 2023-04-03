@@ -62,11 +62,11 @@ const Register = () => {
 	`
 
 	return (
-		<Container>
-			<Wrapper>
+		<div className='reg-cont'>
+			<div className='wrapper-reg'>
 				<div className="signin col">
 					<div className="card-overlay centered">
-						<Title className="text-center font-play  ">Create Account </Title>
+						<div className="text-center text-[3rem]font-play  ">Create Account </div>
 						<form className="flex-wrap font-play" onSubmit={handleSubmit}>
 							<div className="input-wrapper text-center">
 								<label htmlFor="name" className="pr-2 text-xl">
@@ -124,11 +124,11 @@ const Register = () => {
 								/>
 							</div>
 							<div className='text-center pt-4'>
-								<Agreement>
+								{/* <Agreement>
 									Terms & Conditions: By registering for an online account, you
 									agree to our terms and conditions, privacy policy, and any
 									other relevant policies.
-								</Agreement>
+								</Agreement> */}
 							</div>
 							<div className="flex justify-center pt-6">
 								<button
@@ -157,8 +157,8 @@ const Register = () => {
 						</div>
 					</div>
 				</div>
-			</Wrapper>
-		</Container>
+			</div>
+		</div>
 	)
 }
 
