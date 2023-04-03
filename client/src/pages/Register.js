@@ -97,7 +97,7 @@ const Register = () => {
 								By registering for an online account, you agree to our terms and
 								conditions, privacy policy, and any other relevant policies.
 							</Agreement>
-							<Button type="submit" disabled={
+							<Button disabled={
 							!formValues.email ||
 							(!formValues.password &&
 								formValues.confirmPassword === formValues.password)

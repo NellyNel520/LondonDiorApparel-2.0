@@ -7,6 +7,7 @@ import Cart from './pages/Cart'
 import ProductPage from './pages/ProductPage'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import Register2 from './pages/Register2'
 import ProductDetails from './pages/ProductDetails'
 import About from './pages/About'
 import Navbar from './components/Navbar'
@@ -49,6 +50,7 @@ function App() {
 					<Route path="/products/:id" element={<ProductDetails />} />
 					<Route path="/login" element={<Login setUser={setUser}/>} />
 					<Route path="/signup" element={<Register />} />
+					<Route path="/register" element={<Register2 />} />
 				</Routes>
 			</main>
 			<Footer />

@@ -117,7 +117,7 @@ const Navbar = ({ user, handleLogOut }) => {
           <Logo className='font-ari text-[2rem]'>London Dior Apparel</Logo>
         </Center>
         <Right>
-          <Link to={"/signup"}><MenuItem className='hover:text-white'>REGISTER</MenuItem></Link>
+          <Link to={"/register"}><MenuItem className='hover:text-white'>REGISTER</MenuItem></Link>
           <Link to={"/login"}><MenuItem className='hover:text-white'>SIGN IN</MenuItem></Link>
 					<Link to={"/"}><MenuItem className='hover:text-white'>HOME</MenuItem></Link>
 					<Link to={"/products"}><MenuItem className='hover:text-white'>PRODUCTS</MenuItem></Link>
