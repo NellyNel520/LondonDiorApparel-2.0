@@ -27,7 +27,7 @@ const Register = () => {
 			password: formValues.password,
 		})
 		setFormValues(initialState)
-		navigate('/signIn')
+		navigate('/login')
 	}
 
 	const Container = styled.div`
@@ -66,7 +66,7 @@ const Register = () => {
 			<div className='wrapper-reg'>
 				<div className="signin col">
 					<div className="card-overlay centered">
-						<div className="text-center text-[3rem]font-play  ">Create Account </div>
+						<div className="text-center text-5xl font-play  ">Create Account </div>
 						<form className="flex-wrap font-play" onSubmit={handleSubmit}>
 							<div className="input-wrapper text-center">
 								<label htmlFor="name" className="pr-2 text-xl">
@@ -123,12 +123,12 @@ const Register = () => {
 									required
 								/>
 							</div>
-							<div className='text-center pt-4'>
-								{/* <Agreement>
-									Terms & Conditions: By registering for an online account, you
+							<div className='text-center pt-4 font-play'>
+								<div className="">
+									<span className='font-bold text-lg underline text-blue-800'>Terms & Conditions:</span> By registering for an online account, you
 									agree to our terms and conditions, privacy policy, and any
 									other relevant policies.
-								</Agreement> */}
+								</div>
 							</div>
 							<div className="flex justify-center pt-6">
 								<button
