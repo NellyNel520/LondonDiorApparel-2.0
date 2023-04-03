@@ -88,10 +88,8 @@ const Register = () => {
 					<div>
 						<Title className="text-center font-abril  ">Create Account</Title>
 						<Form onSubmit={handleSubmit}>
-							<Input onChange={handleChange} placeholder="First Name" />
-							<Input onChange={handleChange} placeholder="Last Name" />
+							<Input onChange={handleChange} placeholder="Full Name" />
 							<Input onChange={handleChange} placeholder="Email" />
-							<Input onChange={handleChange} placeholder="Username" />
 							<Input onChange={handleChange} placeholder="Password" />
 							<Input onChange={handleChange} placeholder="Confirm Password" />
 							<Agreement className='text-center'>
