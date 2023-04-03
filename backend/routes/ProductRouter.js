@@ -15,6 +15,7 @@ router.post('/addProduct', controllers.createProduct)
 
 // Get All products (Read)
 router.get('/:category', controllers.filterAllProducts)
+router.get('/', controllers.filterAllProducts)
 // Get All products && FILTER / SORT (Read)
 router.get('/all', controllers.getAllProducts)
 // Get by product ID

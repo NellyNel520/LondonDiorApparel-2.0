@@ -25,13 +25,16 @@ const Products = ({category, filters, sort}) => {
         const res = await axios.get(
           category
             ? `${BASE_URL}/products/?category=${category}`
-            : "http://localhost:5000/api/products"
+            : `${BASE_URL}/products`
         );
+        console.log(res)
         setProducts(res.data);
       } catch (err) {}
     };
     getProducts();
   }, [category]);
+
+
 
 
   return (
