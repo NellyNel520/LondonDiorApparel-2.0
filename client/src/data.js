@@ -27,19 +27,19 @@ export const categories = [
     id: 1,
     img: "https://i.postimg.cc/Qd58V26F/cool-mockup-of-a-trendy-woman-wearing-a-tee-while-out-at-night-18856.png",
     title: "T-SHIRTS!",
-    cat:"women"
+    category:"t-shirts"
   },
   {
     id: 2,
     img: "https://images.unsplash.com/photo-1563074409-c1bd47bc2fc3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
     title: "HOODIES",
-    cat:"coat"
+    category:"hoodies"
   },
   {
     id: 3,
     img: "https://images.unsplash.com/photo-1680028136470-5a957bc07a5f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGJlYW5pZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
     title: "BEANIES",
-    cat:"jeans"
+    category:"beanies"
   },
 ];
 
@@ -47,6 +47,7 @@ export const popularProducts = [
   {
     id:1,
     img:"https://i.postimg.cc/NFkt1sv6/Product-5.png",
+    
   },
   {
     id:2,
