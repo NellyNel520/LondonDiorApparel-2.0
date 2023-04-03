@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { CheckSession } from './services/Auth'
-import './styles/App.css'
+import './styles/App.css' 
 import Home from './pages/Home'
 import Cart from './pages/Cart'
 import ProductPage from './pages/ProductPage'
