@@ -5,16 +5,20 @@ const {
   verifyTokenAndAuthorization,
   verifyTokenAndAdmin,
 } = require('../middleware')
+// ROUTE PROTECTION NOTES
+// verifyTokenAndAuthorization:  checks jwt token and if auth 
+// verifyTokenAndAdmin: checks jwt token and isAdmin status (admin dashboard icebox feature)
+  // verifyToken: checks jwt token 
 
-// UPDATE
+// UPDATE 
 router.put('/:id', verifyTokenAndAuthorization, controllers.updateUser)
 // DELETE
 router.delete('/:id', verifyTokenAndAuthorization, controllers.deleteUser)
 //GET USER
-router.get('/find/:id', controllers.getUser)
+router.get('/find/:id', verifyTokenAndAdmin,  controllers.getUser)
 // GET ALL USERS
-router.get('/', controllers.getAllUsers)
+router.get('/', verifyTokenAndAdmin, controllers.getAllUsers)
 //GET USER STATS
-router.get('/stats', controllers.getUserStats)
+router.get('/stats', verifyTokenAndAdmin,  controllers.getUserStats)
 
 module.exports = router
