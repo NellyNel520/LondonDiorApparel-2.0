@@ -24,7 +24,8 @@ const comparePassword = async (storedPassword, password) => {
 const createToken = (payload) => {
 	// Accepts a payload with which to create the token 
   // Added user id and isAdmin variable to token for extra security to add protected routes for a potential admin dashboard
-	let token = jwt.sign(payload, APP_SECRET,)
+	let token = jwt.sign(payload, APP_SECRET, {expiresIn:"3d"})
+	// token expires in 3 days and after that will be required to log back in (added security)
 	// Generates the token and encrypts it, returns the token when the process finishes
 	return token
 }

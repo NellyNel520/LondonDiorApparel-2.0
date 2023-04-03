@@ -37,7 +37,9 @@ const Login = async (req, res) => {
 		// If they match, constructs a payload object of values we want on the front end
 		if (matched) {
 			let payload = {
+				// ...user,
 				id: user.id,
+				name: user.name,
 				email: user.email,
 				isAdmin: user.isAdmin
 			}
