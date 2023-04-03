@@ -7,9 +7,9 @@ const {
 } = require('../middleware')
 
 // UPDATE
-router.put('/:id', controllers.updateUser)
+router.put('/:id', verifyTokenAndAuthorization, controllers.updateUser)
 // DELETE
-router.delete('/:id', controllers.deleteUser)
+router.delete('/:id', verifyTokenAndAuthorization, controllers.deleteUser)
 //GET USER
 router.get('/find/:id', controllers.getUser)
 // GET ALL USERS
