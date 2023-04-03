@@ -47,7 +47,7 @@ function App() {
 					<Route path="/" element={<Home />} />
 					<Route path="/cart" element={<Cart />} />
 					<Route path='/about' element={<About />}/>
-					<Route path="/products" element={<ProductPage />} />
+					<Route path="/products/:category" element={<ProductPage />} />
 					<Route path="/products/:id" element={<ProductDetails />} />
 					{/* <Route path="/login" element={<Login setUser={setUser}/>} /> */}
 					<Route path="/login" element={<Login2 setUser={setUser}/>} />

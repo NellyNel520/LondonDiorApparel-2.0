@@ -6,6 +6,7 @@ import Navbar from '../components/Navbar'
 import Newsletter from '../components/Newsletter'
 import Products from '../components/Products'
 import { mobile } from "../responsive";
+import { useLocation } from "react-router";
 
 
 const Container = styled.div`
@@ -41,6 +42,9 @@ const Select = styled.select`
 const Option = styled.option``;
 
 const ProductPage = () => {
+  const location = useLocation();
+  console.log(location.pathname.split("/")[2])
+
   return (
     <Container className='font-play'>
       <Title className='text-4xl text-blue-400 font-play'>T-shirts</Title>
