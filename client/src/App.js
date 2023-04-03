@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { CheckSession } from './services/Auth'
-import './styles/App.css' 
+import './styles/App.css'
 import Home from './pages/Home'
 import Cart from './pages/Cart'
 import ProductPage from './pages/ProductPage'
@@ -14,7 +14,6 @@ import About from './pages/About'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Announcement from './components/Announcement'
-
 
 function App() {
 	const [user, setUser] = useState(null)
@@ -40,23 +39,22 @@ function App() {
 
 	return (
 		<div>
-			<Navbar user={user} handleLogOut={handleLogOut}/>
-			<Announcement user={user}/>
+			<Navbar user={user} handleLogOut={handleLogOut} />
+			<Announcement user={user} />
 			<main>
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/cart" element={<Cart />} />
-					<Route path='/about' element={<About />}/>
+					<Route path="/about" element={<About />} />
 					<Route path="/products/:category" element={<ProductPage />} />
-					<Route path="/products/:id" element={<ProductDetails />} />
+					<Route path="/product/:id" element={<ProductDetails />} />
 					{/* <Route path="/login" element={<Login setUser={setUser}/>} /> */}
-					<Route path="/login" element={<Login2 setUser={setUser}/>} />
+					<Route path="/login" element={<Login2 setUser={setUser} />} />
 					{/* <Route path="/signup" element={<Register />} /> */}
 					<Route path="/register" element={<Register2 />} />
 				</Routes>
 			</main>
 			<Footer />
-      
 		</div>
 	)
 }
