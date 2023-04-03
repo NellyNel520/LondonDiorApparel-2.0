@@ -8,7 +8,8 @@ module.exports = {
       fontFamily: {
         'play': ['Playfair Display', 'serif'],
         'ari': ['Arizonia', 'cursive'],
-        'header': ['Alkatra', 'cursive']
+        'header': ['Alkatra', 'cursive'],
+        'abril': ['Abril Fatface', 'cursive']
       }
     },
   },
