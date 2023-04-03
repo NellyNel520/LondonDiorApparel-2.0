@@ -1,5 +1,10 @@
 const router = require("express").Router();
 const controllers = require("../controllers/UserController");
+const {
+  verifyToken,
+  verifyTokenAndAuthorization,
+  verifyTokenAndAdmin,
+} = require('../middleware')
 
 // UPDATE
 router.put('/:id', controllers.updateUser)

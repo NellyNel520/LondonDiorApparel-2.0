@@ -1,6 +1,8 @@
 // all user crud requires protected routes
 const { User } = require('../models')
 
+
+
 // UPDATE
 const updateUser = async (req, res) => {
   if (req.body.password) {
