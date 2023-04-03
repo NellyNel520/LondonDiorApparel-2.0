@@ -27,7 +27,7 @@ router.get('/orders/:userId', controllers.getOrderById)
 router.get('/order/:id', verifyTokenAndAuthorization,  controllers.getOrderById)
 
 // Get monthly income || admin only function (admin dashboard icebox)
-router.get('/order/:id', verifyTokenAndAdmin,  controllers.getMonthlyIncome)
+router.get('/', verifyTokenAndAdmin,  controllers.getMonthlyIncome)
 
 // UPDATE || admin only functionality
 router.put('/updateOrder/:id', verifyTokenAndAdmin,  controllers.updateOrder)
