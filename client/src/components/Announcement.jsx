@@ -6,11 +6,11 @@ const Container = styled.div`
 
 `;
 
-const Announcement = ({user }) => {
+const Announcement = ({ user }) => {
   let userOptions 
   if (user) {
     userOptions = (
-<div className='h-10 bg-blue-400 text-white flex justify-center text-xl font-play pt-2 '>Welcome {user.name}! Free Shipping on your<span className='text-black pl-2 text-2xl'>1st Order!</span></div>
+<div className='h-10 bg-blue-400 text-white flex justify-center text-2xl font-play pt-2 '>Welcome <span className='text-black pl-1 pr-1 text-2xl'> {user.name}!</span> Enjoy Free Shipping on your<span className='text-black pl-2 text-2xl'>1st Order!</span></div>
     )
   }
 const publicOptions = (

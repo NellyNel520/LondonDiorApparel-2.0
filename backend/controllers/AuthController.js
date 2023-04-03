@@ -1,6 +1,6 @@
 const { User } = require('../models')
 const middleware = require('../middleware')
-// const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken')
 
 const Register = async (req, res) => {
 	try {
@@ -39,6 +39,7 @@ const Login = async (req, res) => {
 			let payload = {
 				id: user.id,
 				email: user.email,
+				isAdmin: user.isAdmin
 			}
 
 			// Creates our JWT and packages it with our payload to send as a response
@@ -52,6 +53,8 @@ const Login = async (req, res) => {
 			.status(401)
 			.send({ status: 'Error', msg: 'An error has occurred on Login!' })
 	}
+
+
 }
 
 const UpdatePassword = async (req, res) => {
