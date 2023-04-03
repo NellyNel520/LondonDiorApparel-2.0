@@ -14,9 +14,12 @@ import About from './pages/About'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Announcement from './components/Announcement'
-
+import axios from 'axios'
+import { BASE_URL } from './global'
 function App() {
 	const [user, setUser] = useState(null)
+	const [products, setProducts] = useState([])
+
 
 	const handleLogOut = () => {
 		//Reset all auth related state and clear localStorage
@@ -37,6 +40,12 @@ function App() {
 		}
 	}, [])
 
+	const getAllProducts = async () => {
+		const response = await axios.get(`${BASE_URL}product/products`)
+		setProducts(response.data.products)
+		// console.log(response.data)
+	}
+
 	return (
 		<div>
 			<Navbar user={user} handleLogOut={handleLogOut} />
@@ -46,7 +55,7 @@ function App() {
 					<Route path="/" element={<Home />} />
 					<Route path="/cart" element={<Cart />} />
 					<Route path="/about" element={<About />} />
-					<Route path="/products/:category" element={<ProductPage />} />
+					<Route path="/products/:category" element={<ProductPage getAllProducts={getAllProducts} products={products} setProducts={setProducts} />} />
 					<Route path="/product/:id" element={<ProductDetails />} />
 					{/* <Route path="/login" element={<Login setUser={setUser}/>} /> */}
 					<Route path="/login" element={<Login2 setUser={setUser} />} />
