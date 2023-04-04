@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Newsletter from '../components/Newsletter'
 import Products from '../components/Products'
+import Products2 from '../components/Products2'
 import { mobile } from "../responsive";
 import { useLocation } from "react-router";
 import { useState } from "react";
@@ -89,7 +90,7 @@ const ProductPage = () => {
           </Select>
         </Filter>
       </FilterContainer>
-      <Products category={category} filters={filters} sort={sort}/>
+      <Products2 category={category} filters={filters} sort={sort}/>
       <Newsletter />
     </Container>
   )

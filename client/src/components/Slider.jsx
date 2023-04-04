@@ -5,6 +5,8 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
 import { sliderItems } from '../data';
 import { mobile } from "../responsive";
+import { Link } from 'react-router-dom'
+
 
 const Container = styled.div`
 	width: 100%;
@@ -108,9 +110,14 @@ const Slider = () => {
 						<Desc className='text-white font-play'>
 							{item.desc}
 						</Desc>
-						<Button className="bg-blue-400 rounded hover:bg-yellow-300 hover:text-blue-600">
+					
+						<Link to={"/products"}>
+						<button className='ml-3 rounded-md border border-transparent bg-blue-500 py-3 px-5 mb-6 text-lg font-medium text-white shadow-sm hover:bg-yellow-400 hover:text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'>
 							SHOP NOW
-						</Button>
+						</button>
+						</Link>
+
+					
 					</InfoContainer>
 				</Slide>
         

@@ -51,7 +51,10 @@ const CategoryItem = ({ item }) => {
 				<Image src={item.img} />
 				<Info>
 					<Title>{item.title}</Title>
-					<Button className="rounded">SHOP NOW</Button>
+					<Link to={`/products/${item.category}`}>
+
+					<button className="rounded bg-white text-gray-600 p-3 hover:bg-blue-400 hover:text-white " >SHOP NOW</button>
+					</Link>
 				</Info>
 			</Link>
 		</Container>
