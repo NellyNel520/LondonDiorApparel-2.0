@@ -6,10 +6,12 @@ import { useSelector } from 'react-redux'
 import { useState, useEffect } from 'react'
 import StripeCheckout from 'react-stripe-checkout'
 import { useNavigate } from 'react-router-dom'
+
 // import { useHistory } from "react-router-dom";
 
 import axios from 'axios'
 import Client from '../services/api'
+import { userRequest } from '../services/requestMethods'
 
 const KEY="pk_test_51MsoK7ApFenuQy8MR8LgDNJu3AtBcuO8LjCDKeQn10hJ6EE8p0G29GkIdTYBYk8EOQsYFvMpOXvOHMFeDt4FN4kY00vus1QbyV"
 
@@ -186,6 +188,29 @@ const Cart = () => {
 		setStripeToken(token)
 	}
 	console.log(stripeToken)
+
+  // useEffect(() => {
+	// 	const makeRequest = async () => {
+	// 		try {
+	// 			const response = await userRequest.post(
+	// 				'/checkout/payment', {
+  //           tokenId: stripeToken.id,
+  //           amount: cart.total*100,
+
+  //         }
+	// 			)
+  //       console.log(response.data)
+  //       navigate('/success')
+  //       // history.push("/success", {
+  //       //   stripeData: response.data,
+  //       //   products: cart,
+  //       // })
+	// 		} catch (err) {
+	// 			console.log(err)
+	// 		}
+	// 	}
+  //   stripeToken && makeRequest()
+	// }, [stripeToken, cart.total, navigate])
 
   useEffect(() => {
 		const makeRequest = async () => {
