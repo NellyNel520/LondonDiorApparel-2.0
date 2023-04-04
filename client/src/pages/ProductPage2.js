@@ -40,7 +40,7 @@ const Select = styled.select`
 `;
 const Option = styled.option``;
 
-const ProductPage = () => {
+const ProductPage2 = () => {
   const location = useLocation();
   console.log(location.pathname.split("/")[2])
   const category = location.pathname.split("/")[2];
@@ -59,7 +59,7 @@ const ProductPage = () => {
 
   return (
     <Container className='font-play'>
-      <Title className='text-6xl text-center pt-5 text-blue-400 font-play'>{category}</Title>
+      <Title className='text-4xl text-blue-400 font-play'>Products</Title>
       <FilterContainer>
         <Filter >
           <FilterText>Filter Products:</FilterText>
@@ -90,10 +90,10 @@ const ProductPage = () => {
           </Select>
         </Filter>
       </FilterContainer>
-      <Products2 category={category} filters={filters} sort={sort}/>
+      <Products category={category} filters={filters} sort={sort}/>
       <Newsletter />
     </Container>
   )
 }
 
-export default ProductPage
+export default ProductPage2

@@ -5,7 +5,8 @@ import { mobile } from '../responsive'
 import { useSelector } from 'react-redux'
 import { useState, useEffect } from 'react'
 import StripeCheckout from 'react-stripe-checkout'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
+
 
 // import { useHistory } from "react-router-dom";
 
@@ -240,18 +241,31 @@ const Cart = () => {
 				<Title className="text-xl text-blue-400">YOUR CART</Title>
 				<Top>
 					<TopButton className="bg-white text-blue-400 hover:bg-blue-400 hover:text-white rounded">
-						CONTINUE SHOPPING
+						<Link to={"/products/"}><button>CONTINUE SHOPPING</button></Link>
 					</TopButton>
 					<TopTexts>
 						<TopText>Shopping Bag(2)</TopText>
 						<TopText>Your Wishlist(12)</TopText>
 					</TopTexts>
+
+					<StripeCheckout
+							name="London Dior Apparel"
+							image="https://i.ibb.co/JxgT8GP/LDA-Logo-Blue2.png"
+							billingAddress
+							shippingAddress
+							description={`Your total is $${cart.total}`}
+							amount={cart.total * 100}
+							token={onToken}
+							stripeKey={KEY}
+						>
 					<TopButton
 						type="field"
 						className="bg-blue-400 rounded text-black hover:text-white"
 					>
 						CHECKOUT NOW
 					</TopButton>
+					</StripeCheckout>
+
 				</Top>
 				<Bottom>
 					<Info>

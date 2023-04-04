@@ -5,6 +5,7 @@ import './styles/App.css'
 import Home from './pages/Home'
 import Cart from './pages/Cart'
 import ProductPage from './pages/ProductPage'
+import ProductPage2 from './pages/ProductPage2'
 import Success from './pages/Success'
 import Login2 from './pages/Login2'
 // import Register from './pages/Register'
@@ -57,7 +58,7 @@ function App() {
 					<Route path="/success" element={<Success />} />
 					<Route path="/about" element={<About />} />
 					<Route path="/products/:category" element={<ProductPage />} />
-					<Route path="/products" element={<ProductPage />} />
+					<Route path="/products" element={<ProductPage2 />} />
 					<Route path="/product/:id" element={<ProductDetails />} />
 					{/* <Route path="/login" element={<Login setUser={setUser}/>} /> */}
 					<Route path="/login" element={<Login2 setUser={setUser} />} />

@@ -74,6 +74,7 @@ const FilterColor = styled.div`
 	width: 20px;
 	height: 20px;
 	border-radius: 50%;
+	
 	background-color: ${(props) => props.color};
 	margin: 0px 5px;
 	cursor: pointer;
@@ -193,7 +194,7 @@ const ProductDetails = () => {
 						<Filter>
 							<FilterTitle className="text-white">Color:</FilterTitle>
 							{product.color?.map((c) => (
-								<FilterColor color={c} key={c} onClick={() => setColor(c)} />
+								<FilterColor  color={c} key={c} onClick={() => setColor(c)} />
 							))}
 							{/* <FilterColor color="black" />
 							<FilterColor color="blue" />
