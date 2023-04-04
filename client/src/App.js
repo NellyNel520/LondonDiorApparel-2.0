@@ -58,7 +58,7 @@ function App() {
 					<Route path="/success" element={<Success />} />
 					<Route path="/about" element={<About />} />
 					<Route path="/products/:category" element={<ProductPage />} />
-					<Route path="/products" element={<ProductPage2 />} />
+					<Route path="/all-products" element={<ProductPage2 />} />
 					<Route path="/product/:id" element={<ProductDetails />} />
 					{/* <Route path="/login" element={<Login setUser={setUser}/>} /> */}
 					<Route path="/login" element={<Login2 setUser={setUser} />} />

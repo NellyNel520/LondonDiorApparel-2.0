@@ -90,7 +90,7 @@ const ProductPage2 = () => {
           </Select>
         </Filter>
       </FilterContainer>
-      <Products category={category} filters={filters} sort={sort}/>
+      <Products2 category={category} filters={filters} sort={sort}/>
       <Newsletter />
     </Container>
   )
