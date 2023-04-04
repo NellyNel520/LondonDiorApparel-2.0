@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import SearchIcon from '@mui/icons-material/Search'
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import { Link } from 'react-router-dom'
 
 const Info = styled.div`
@@ -23,8 +23,9 @@ const Info = styled.div`
 
 const Container = styled.div`
 	flex: 1;
-	margin: 5px;
+	margin: 8px 7px;
 	min-width: 280px;
+	max-width: 340px;
 	height: 350px;
 	display: flex;
 	align-items: center;
@@ -64,9 +65,11 @@ const ProductCard = ({ item }) => {
 			{/* <Circle /> */}
 			<Image src={item.img} />
 			<Info>
+			<Link to={`/product/${item._id}`}>
 				<Icon>
 					<ShoppingCartIcon />
 				</Icon>
+			</Link>
 
 				<Link to={`/product/${item._id}`}>
 					<Icon>
@@ -75,7 +78,7 @@ const ProductCard = ({ item }) => {
 				</Link>
 
 				<Icon>
-					<FavoriteBorderIcon />
+					<FavoriteIcon className='hover:fill-red-400'/>
 				</Icon>
 			</Info>
 		</Container>
