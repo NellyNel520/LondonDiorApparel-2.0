@@ -8,6 +8,8 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../global'
 import Rating from '../components/Rating'
+import { addProduct } from "../redux/cartRedux";
+import { useDispatch } from "react-redux";
 
 const Container = styled.div``
 
@@ -129,6 +131,8 @@ const ProductDetails = () => {
 	const [quantity, setQuantity] = useState(1)
 	const [color, setColor] = useState('')
 	const [size, setSize] = useState('')
+	const dispatch = useDispatch();
+
 
 	// Axios call to sort products by id
 	useEffect(() => {
@@ -152,11 +156,14 @@ const ProductDetails = () => {
 		}
 	}
 
-	// const handleClick = () => {
-	//   dispatch(
-	//     addProduct({ ...product, quantity, color, size })
-	//   );
-	// };
+	// function to update cart can make axios call to update route in backend OR ..
+
+	
+	const handleClick = () => {
+	  dispatch(
+	    addProduct({ ...product, quantity, color, size })
+	  );
+	};
 	return (
 		<Container className="font-play">
 			<Wrapper>
@@ -166,7 +173,7 @@ const ProductDetails = () => {
 				<InfoContainer>
 					<Title className="text-6xl text-blue-400">{product.title}</Title>
 
-					<div >
+					<div>
 						<Rating rating={product.rating} numReviews={product.numReviews} />
 					</div>
 
@@ -223,13 +230,19 @@ const ProductDetails = () => {
 
 					<AddContainer className="text-white">
 						<AmountContainer className="text-3xl justify-center">
-							<Remove className='hover:text-red-500' onClick={() => handleQuantity('dec')} />
+							<Remove
+								className="hover:text-red-500"
+								onClick={() => handleQuantity('dec')}
+							/>
 							<Amount>{quantity}</Amount>
-							<Add className='hover:text-green-500' onClick={() => handleQuantity('inc')} />
+							<Add
+								className="hover:text-green-500"
+								onClick={() => handleQuantity('inc')}
+							/>
 						</AmountContainer>
 
-						{product.nStock > 0 && (
-							<button class="flex ml-auto text-white bg-blue-600 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-400 rounded">
+						{product.inStock > 0 && (
+							<button class="flex ml-auto text-white bg-blue-600 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-400 rounded" onClick={handleClick}>
 								Add to Cart
 							</button>
 						)}

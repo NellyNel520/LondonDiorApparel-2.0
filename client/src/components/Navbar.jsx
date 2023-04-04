@@ -7,6 +7,7 @@ import { mobile } from "../responsive";
 import { Link } from 'react-router-dom'
 import ExitToAppOutlinedIcon from '@mui/icons-material/ExitToAppOutlined';
 import PersonIcon from '@mui/icons-material/Person'
+import { useSelector } from "react-redux";
 
 const Container = styled.div`
   height: 60px;
@@ -71,6 +72,7 @@ const MenuItem = styled.div`
 `;
 
 const Navbar = ({ user, handleLogOut }) => {
+  const quantity = useSelector(state=>state.cart.quantity)
   let userOptions
 	if (user) {
     userOptions = (
@@ -94,7 +96,7 @@ const Navbar = ({ user, handleLogOut }) => {
 					<Link to={"/products/"}><MenuItem className='hover:text-white'>PRODUCTS</MenuItem></Link>
 					<Link to={"/about"}><MenuItem className='hover:text-white'>ABOUT</MenuItem></Link>
           <Link to={"/cart"}><MenuItem className='hover:text-white'>
-            <Badge badgeContent={3} color="primary">
+            <Badge badgeContent={quantity} color="primary">
               <ShoppingCartIcon />
             </Badge>
           </MenuItem>
@@ -123,7 +125,7 @@ const Navbar = ({ user, handleLogOut }) => {
 					<Link to={"/products/"}><MenuItem className='hover:text-white'>PRODUCTS</MenuItem></Link>
 					<Link to={"/about"}><MenuItem className='hover:text-white'>ABOUT</MenuItem></Link>
           <Link to={"/cart"}><MenuItem className='hover:text-white'>
-            <Badge badgeContent={3} color="primary">
+            <Badge badgeContent={quantity} color="primary">
               <ShoppingCartIcon />
             </Badge>
           </MenuItem>
