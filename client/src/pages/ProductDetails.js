@@ -144,18 +144,18 @@ const ProductDetails = () => {
 	}, [id])
 
 	const handleQuantity = (type) => {
-    if (type === "dec") {
-      quantity > 1 && setQuantity(quantity - 1);
-    } else {
-      setQuantity(quantity + 1);
-    }
-  };
+		if (type === 'dec') {
+			quantity > 1 && setQuantity(quantity - 1)
+		} else {
+			setQuantity(quantity + 1)
+		}
+	}
 
-  // const handleClick = () => {
-  //   dispatch(
-  //     addProduct({ ...product, quantity, color, size })
-  //   );
-  // };
+	// const handleClick = () => {
+	//   dispatch(
+	//     addProduct({ ...product, quantity, color, size })
+	//   );
+	// };
 	return (
 		<Container className="font-play">
 			<Wrapper>
@@ -200,27 +200,32 @@ const ProductDetails = () => {
 								<FilterSizeOption>2X</FilterSizeOption> */}
 							</FilterSize>
 						</Filter>
+
 						<Filter>
 							<FilterTitle className="text-white pr-2">Status: </FilterTitle>
-							<span className=" text-white border-0 py-2 px-3 bg-green-500 rounded">
-								In Stock
-							</span>
+							{product.inStock > 0 ? (
+								<span className=" text-white border-0 py-2 px-3 bg-green-500 rounded">
+									In Stock
+								</span>
+							) : (
+								<span className=" text-white border-0 py-2 px-6 bg-red-500 rounded">
+									Unavailable
+								</span>
+							)}
 						</Filter>
 					</FilterContainer>
 
 					<AddContainer className="text-white">
-
 						<AmountContainer className="text-xl">
-							<Remove onClick={() => handleQuantity("dec")} />
+							<Remove onClick={() => handleQuantity('dec')} />
 							<Amount>{quantity}</Amount>
-							<Add onClick={() => handleQuantity("inc")}/>
+							<Add onClick={() => handleQuantity('inc')} />
 						</AmountContainer>
 
-						<Button  className="text-black hover:text-blue-500">
+						<Button className="text-black hover:text-blue-500">
 							ADD TO CART
 						</Button>
 					</AddContainer>
-
 				</InfoContainer>
 			</Wrapper>
 			<Newsletter />
