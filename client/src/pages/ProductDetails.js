@@ -7,6 +7,7 @@ import { useLocation } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../global'
+import Rating from '../components/Rating'
 
 const Container = styled.div``
 
@@ -164,6 +165,11 @@ const ProductDetails = () => {
 				</ImgContainer>
 				<InfoContainer>
 					<Title className="text-4xl text-blue-400">{product.title}</Title>
+
+					<div>
+						<Rating rating={product.rating} numReviews={product.numReviews} />
+					</div>
+
 					<Desc className="text-white text-xl">
 						{product.desc}
 
@@ -222,9 +228,11 @@ const ProductDetails = () => {
 							<Add onClick={() => handleQuantity('inc')} />
 						</AmountContainer>
 
-						<Button className="text-black hover:text-blue-500">
-							ADD TO CART
-						</Button>
+						{product.countInStock > 0 && (
+							<button class="flex ml-auto text-white bg-blue-400 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-400 rounded">
+								Add to Cart
+							</button>
+						)}
 					</AddContainer>
 				</InfoContainer>
 			</Wrapper>
