@@ -164,7 +164,7 @@ const ProductDetails = () => {
 					<Image src={product.img} />
 				</ImgContainer>
 				<InfoContainer>
-					<Title className="text-4xl text-blue-400">{product.title}</Title>
+					<Title className="text-6xl text-blue-400">{product.title}</Title>
 
 					<div >
 						<Rating rating={product.rating} numReviews={product.numReviews} />
@@ -180,7 +180,7 @@ const ProductDetails = () => {
 							Available in a range of colors and sizes to suit your style.
 						</p>
 					</Desc>
-					<Price className="text-white">${product.price}</Price>
+					<Price className="text-white">${product.price}.99</Price>
 
 					<FilterContainer>
 						<Filter>
@@ -222,14 +222,14 @@ const ProductDetails = () => {
 					</FilterContainer>
 
 					<AddContainer className="text-white">
-						<AmountContainer className="text-xl">
-							<Remove onClick={() => handleQuantity('dec')} />
+						<AmountContainer className="text-3xl justify-center">
+							<Remove className='hover:text-red-500' onClick={() => handleQuantity('dec')} />
 							<Amount>{quantity}</Amount>
-							<Add onClick={() => handleQuantity('inc')} />
+							<Add className='hover:text-green-500' onClick={() => handleQuantity('inc')} />
 						</AmountContainer>
 
-						{product.countInStock > 0 && (
-							<button class="flex ml-auto text-white bg-blue-400 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-400 rounded">
+						{product.nStock > 0 && (
+							<button class="flex ml-auto text-white bg-blue-600 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-400 rounded">
 								Add to Cart
 							</button>
 						)}

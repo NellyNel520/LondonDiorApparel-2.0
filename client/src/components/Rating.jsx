@@ -4,7 +4,7 @@ const Rating = (props) => {
   const { rating, numReviews } = props
 
   return (
-    <div className="rating text-yellow-400">
+    <div className="rating mt-4 text-yellow-400">
       <span>
         <i
           className={
