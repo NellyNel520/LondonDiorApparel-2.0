@@ -187,7 +187,7 @@ const ProductDetails = () => {
 							Available in a range of colors and sizes to suit your style.
 						</p>
 					</Desc>
-					<Price className="text-white">${product.price}.99</Price>
+					<Price className="text-white">${product.price}</Price>
 
 					<FilterContainer>
 						<Filter>

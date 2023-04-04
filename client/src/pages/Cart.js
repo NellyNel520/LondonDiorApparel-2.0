@@ -1,11 +1,17 @@
 import { Add, Remove } from '@mui/icons-material'
 import React from 'react'
 import styled from 'styled-components'
-import Announcement from '../components/Announcement'
-import Footer from '../components/Footer'
-import Navbar from '../components/Navbar'
 import { mobile } from '../responsive'
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux'
+import { useState, useEffect } from 'react'
+import StripeCheckout from 'react-stripe-checkout'
+import { useNavigate } from 'react-router-dom'
+// import { useHistory } from "react-router-dom";
+
+import axios from 'axios'
+import Client from '../services/api'
+
+const KEY="pk_test_51MsoK7ApFenuQy8MR8LgDNJu3AtBcuO8LjCDKeQn10hJ6EE8p0G29GkIdTYBYk8EOQsYFvMpOXvOHMFeDt4FN4kY00vus1QbyV"
 
 const Container = styled.div`
 	${'' /* background-color: white; */}
@@ -64,6 +70,7 @@ const Info = styled.div`
 const Product = styled.div`
 	display: flex;
 	justify-content: space-between;
+
 	${mobile({ flexDirection: 'column' })}
 `
 
@@ -162,7 +169,46 @@ const Button = styled.button`
 
 const Cart = () => {
 	const cart = useSelector((state) => state.cart)
+	const [quantity, setQuantity] = useState(1)
+	const [stripeToken, setStripeToken] = useState(null)
+	let navigate = useNavigate()
+  // const history = useHistory();
 
+	const handleQuantity = (type) => {
+		if (type === 'dec') {
+			quantity > 1 && setQuantity(quantity - 1)
+		} else {
+			setQuantity(quantity + 1)
+		}
+	}
+
+	const onToken = (token) => {
+		setStripeToken(token)
+	}
+	console.log(stripeToken)
+
+  useEffect(() => {
+		const makeRequest = async () => {
+			try {
+				const response = await axios.post(
+					'http://localhost:3001/api/checkout/payment', {
+            tokenId:stripeToken.id,
+            amount: cart.total*100,
+
+          }
+				)
+        console.log(response.data)
+        navigate('/success')
+        // history.push("/success", {
+        //   stripeData: response.data,
+        //   products: cart,
+        // })
+			} catch (err) {
+				console.log(err)
+			}
+		}
+    stripeToken && makeRequest()
+	}, [stripeToken, cart.total, navigate])
 	return (
 		<Container className="text-white font-play">
 			<Wrapper>
@@ -184,30 +230,34 @@ const Cart = () => {
 				</Top>
 				<Bottom>
 					<Info>
+						<Hr />
 						{cart.products.map((product) => (
-							<Product>
+							<Product className="mt-8 mb-8">
 								<ProductDetail>
-									<Image src="https://i.postimg.cc/13fxzcXc/hoodie-mockup-of-a-man-with-cool-locs-m10777-2.png" />
+									<Image src={product.img} />
 									<Details>
 										<ProductName>
-											<b className="text-blue-400">Product: </b>Budtender Hoodie
+											<b className="text-blue-400">Product: </b>
+											{product.title}
 										</ProductName>
 										<ProductId>
-											<b className="text-blue-400">ID:</b> 97950707-38424
+											<b className="text-blue-400">ID:</b> {product._id}
 										</ProductId>
-										<ProductColor color="pink" />
+										<ProductColor color={product.color} />
 										<ProductSize>
-											<b className="text-blue-400">Size:</b> L
+											<b className="text-blue-400">Size:</b> {product.size}
 										</ProductSize>
 									</Details>
 								</ProductDetail>
 								<PriceDetail>
 									<ProductAmountContainer>
-										<Add />
-										<ProductAmount>2</ProductAmount>
-										<Remove />
+										<Add onClick={() => handleQuantity('inc')} />
+										<ProductAmount>{product.quantity}</ProductAmount>
+										<Remove onClick={() => handleQuantity('dec')} />
 									</ProductAmountContainer>
-									<ProductPrice>$45.00</ProductPrice>
+									<ProductPrice>
+										${product.price * product.quantity}
+									</ProductPrice>
 								</PriceDetail>
 							</Product>
 						))}
@@ -215,10 +265,12 @@ const Cart = () => {
 						<Hr />
 					</Info>
 					<Summary>
-						<SummaryTitle className="text-2xl text-blue-400">ORDER SUMMARY</SummaryTitle>
+						<SummaryTitle className="text-2xl text-blue-400">
+							ORDER SUMMARY
+						</SummaryTitle>
 						<SummaryItem className="text-xl">
 							<SummaryItemText>Subtotal:</SummaryItemText>
-							<SummaryItemPrice>$75.00</SummaryItemPrice>
+							<SummaryItemPrice>${cart.total}</SummaryItemPrice>
 						</SummaryItem>
 						<SummaryItem>
 							<SummaryItemText>Estimated Shipping:</SummaryItemText>
@@ -232,12 +284,22 @@ const Cart = () => {
 							<SummaryItemText type="total" className="text-blue-400 text-xl">
 								Total:
 							</SummaryItemText>
-							<SummaryItemPrice>$75.00</SummaryItemPrice>
+							<SummaryItemPrice>${cart.total}</SummaryItemPrice>
 						</SummaryItem>
-
-						<Button className="hover:bg-[#0ca2e2] border rounded">
-							CHECKOUT
-						</Button>
+						<StripeCheckout
+							name="London Dior Apparel"
+							image="https://i.ibb.co/JxgT8GP/LDA-Logo-Blue2.png"
+							billingAddress
+							shippingAddress
+							description={`Your total is $${cart.total}`}
+							amount={cart.total * 100}
+							token={onToken}
+							stripeKey={KEY}
+						>
+							<Button className="hover:bg-[#0ca2e2] border rounded">
+								CHECKOUT
+							</Button>
+						</StripeCheckout>
 					</Summary>
 				</Bottom>
 			</Wrapper>
