@@ -166,7 +166,7 @@ const ProductDetails = () => {
 				<InfoContainer>
 					<Title className="text-4xl text-blue-400">{product.title}</Title>
 
-					<div>
+					<div >
 						<Rating rating={product.rating} numReviews={product.numReviews} />
 					</div>
 
