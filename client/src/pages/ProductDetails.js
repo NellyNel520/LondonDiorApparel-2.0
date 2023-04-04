@@ -2,10 +2,10 @@ import { Add, Remove } from '@mui/icons-material'
 import React from 'react'
 import styled from 'styled-components'
 import Newsletter from '../components/Newsletter'
-import { mobile } from "../responsive";
-import { useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { mobile } from '../responsive'
+import { useLocation } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 import { BASE_URL } from '../global'
 
 const Container = styled.div``
@@ -13,7 +13,7 @@ const Container = styled.div``
 const Wrapper = styled.div`
 	padding: 50px;
 	display: flex;
-	${mobile({ padding: "10px", flexDirection: "column" })}
+	${mobile({ padding: '10px', flexDirection: 'column' })}
 `
 
 const ImgContainer = styled.div`
@@ -24,15 +24,15 @@ const Image = styled.img`
 	width: 100%;
 	height: 90vh;
 	object-fit: cover;
-	${mobile({ height: "40vh" })}
+	${mobile({ height: '40vh' })}
 `
 
 const InfoContainer = styled.div`
 	flex: 1;
 	padding: 20px 40px;
-  ${'' /* background-color: gray; */}
-  height: 90%;
-	${mobile({ padding: "10px" })}
+	${'' /* background-color: gray; */}
+	height: 90%;
+	${mobile({ padding: '10px' })}
 `
 
 const Title = styled.h1`
@@ -54,7 +54,7 @@ const FilterContainer = styled.div`
 	display: flex;
 	border: 8px white;
 	justify-content: space-between;
-	${mobile({ width: "100%" })}
+	${mobile({ width: '100%' })}
 `
 
 const Filter = styled.div`
@@ -88,7 +88,7 @@ const AddContainer = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	${mobile({ width: "100%" })}
+	${mobile({ width: '100%' })}
 `
 
 const AmountContainer = styled.div`
@@ -111,7 +111,7 @@ const Amount = styled.span`
 const Button = styled.button`
 	padding: 15px;
 	border: 2px solid white;
-  border-radius: 8px;
+	border-radius: 8px;
 	background-color: #0ca2e2;
 
 	cursor: pointer;
@@ -122,78 +122,105 @@ const Button = styled.button`
 `
 
 const ProductDetails = () => {
-	const location = useLocation();
-  const id = location.pathname.split("/")[2];
-  const [product, setProduct] = useState({});
-  const [quantity, setQuantity] = useState(1);
-  const [color, setColor] = useState("");
-  const [size, setSize] = useState("");
+	const location = useLocation()
+	const id = location.pathname.split('/')[2]
+	const [product, setProduct] = useState({})
+	const [quantity, setQuantity] = useState(1)
+	const [color, setColor] = useState('')
+	const [size, setSize] = useState('')
 
+	// Axios call to sort products by id
+	useEffect(() => {
+		const getProduct = async () => {
+			try {
+				const res = await axios.get(`${BASE_URL}/products/find/${id}`)
+				// console.log(res)
+				setProduct(res.data.product)
+				// console.log(res.data.product.title)
+				// console.log(product)
+			} catch (err) {}
+		}
+		getProduct()
+	}, [id])
 
-  // Axios call to sort products by id
-  useEffect(() => {
-    const getProduct = async () => {
-      try {
-        const res = await axios.get( `${BASE_URL}/products/info/${id}`);
-        console.log(res)
-        setProduct(res.data);
-      } catch (err) {}
-    };
-    getProduct();
-  }, [id]);
+	const handleQuantity = (type) => {
+    if (type === "dec") {
+      quantity > 1 && setQuantity(quantity - 1);
+    } else {
+      setQuantity(quantity + 1);
+    }
+  };
 
-	
-
+  // const handleClick = () => {
+  //   dispatch(
+  //     addProduct({ ...product, quantity, color, size })
+  //   );
+  // };
 	return (
-		<Container className='font-play'>
+		<Container className="font-play">
 			<Wrapper>
 				<ImgContainer>
-					<Image src="https://i.postimg.cc/23NYW1t8/mockup-of-a-bearded-man-wearing-a-bella-canvas-long-sleeve-tee-m13939.png" />
+					<Image src={product.img} />
 				</ImgContainer>
 				<InfoContainer>
-					<Title className="text-4xl text-blue-400">
-						Black By Popular Demand
-					</Title>
+					<Title className="text-4xl text-blue-400">{product.title}</Title>
 					<Desc className="text-white text-xl">
-						This classic t-shirt is a wardrobe essential. Made from high-quality
-						cotton, it's soft, comfortable, and durable. The versatile design
-						makes it perfect for any casual occasion. Available in a range of
-						colors and sizes to suit your style.
+						{product.desc}
+
+						<p>
+							This classic t-shirt is a wardrobe essential. Made from
+							high-quality cotton, it's soft, comfortable, and durable. The
+							versatile design makes it perfect for any casual occasion.
+							Available in a range of colors and sizes to suit your style.
+						</p>
 					</Desc>
-					<Price className="text-white">$20.99</Price>
+					<Price className="text-white">${product.price}</Price>
 
 					<FilterContainer>
 						<Filter>
 							<FilterTitle className="text-white">Color:</FilterTitle>
-							<FilterColor color="black" />
+							{product.color?.map((c) => (
+								<FilterColor color={c} key={c} onClick={() => setColor(c)} />
+							))}
+							{/* <FilterColor color="black" />
 							<FilterColor color="blue" />
-							<FilterColor color="red" />
+							<FilterColor color="red" /> */}
 						</Filter>
 						<Filter>
 							<FilterTitle className="text-white">Size:</FilterTitle>
-							<FilterSize>
-								<FilterSizeOption>XS</FilterSizeOption>
+							<FilterSize onChange={(e) => setSize(e.target.value)}>
+								{product.size?.map((s) => (
+									<FilterSizeOption key={s}>{s}</FilterSizeOption>
+								))}
+								{/* <FilterSizeOption>XS</FilterSizeOption>
 								<FilterSizeOption>S</FilterSizeOption>
 								<FilterSizeOption>M</FilterSizeOption>
 								<FilterSizeOption>L</FilterSizeOption>
 								<FilterSizeOption>XL</FilterSizeOption>
-								<FilterSizeOption>2X</FilterSizeOption>
+								<FilterSizeOption>2X</FilterSizeOption> */}
 							</FilterSize>
 						</Filter>
 						<Filter>
 							<FilterTitle className="text-white pr-2">Status: </FilterTitle>
-							<span className=' text-white border-0 py-2 px-3 bg-green-500 rounded'>In Stock</span>
+							<span className=" text-white border-0 py-2 px-3 bg-green-500 rounded">
+								In Stock
+							</span>
 						</Filter>
-						
 					</FilterContainer>
+
 					<AddContainer className="text-white">
-						<AmountContainer className='text-xl'>
-              <Remove />
-              <Amount>1</Amount>
-              <Add />
-            </AmountContainer>
-						<Button className="text-black hover:text-blue-500">ADD TO CART</Button>
+
+						<AmountContainer className="text-xl">
+							<Remove onClick={() => handleQuantity("dec")} />
+							<Amount>{quantity}</Amount>
+							<Add onClick={() => handleQuantity("inc")}/>
+						</AmountContainer>
+
+						<Button  className="text-black hover:text-blue-500">
+							ADD TO CART
+						</Button>
 					</AddContainer>
+
 				</InfoContainer>
 			</Wrapper>
 			<Newsletter />
